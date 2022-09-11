@@ -29,7 +29,7 @@ def change_mac_address(iface, mac_addr):
 
 def control_new_mac(interface):
 	ifconfig = sub.check_output(["ifconfig", interface])
-	new_mac = re.search(b"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig))
+	new_mac = re.search(r"\w\w:\w\w:\w\w:\w\w:\w\w:\w\w", str(ifconfig))
 	if new_mac:
 		return new_mac.group(0)
 	else:
